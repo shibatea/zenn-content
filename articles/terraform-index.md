@@ -10,10 +10,11 @@ published: true
 
 ## 目次
 
-- [Terraform をインストールする](install-terraform)
-- [インフラストラクチャの構築](build-infrastructure)
-- [インフラストラクチャの変更](change-infrastructure)
-- [インフラストラクチャの破棄](destroy-infrastructure)
+- [Terraform をインストールする](terraform-install)
+- [インフラストラクチャの構築](terraform-build-infrastructure)
+- [インフラストラクチャの変更](terraform-change-infrastructure)
+- [インフラストラクチャの破棄](terraform-destroy-infrastructure)
+- [入力変数の定義](terraform-define-input-variables)
 - [リソースの依存関係の作成](create-resource-dependencies)
 
 ## 参考

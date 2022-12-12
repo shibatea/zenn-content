@@ -6,6 +6,8 @@ topics: ["C#", "Azure", "Blob Storage"]
 published: true
 ---
 
+Blob Storage にあるファイルに対して少しずつ文字列を書き込む処理が書きたくて調べた内容を備忘録として残しておきます。
+
 ## Azurite エミュレーターを使用する
 
 ### 環境情報

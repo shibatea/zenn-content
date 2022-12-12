@@ -3,7 +3,7 @@ title: "Blob Storage に少しずつ文字列を書き込みする"
 emoji: "💬"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["C#", "Azure", "Blob Storage"]
-published: false
+published: true
 ---
 
 ## Azurite エミュレーターを使用する
@@ -56,14 +56,11 @@ internal class Program
     {
         var storageAccount = new BlobServiceClient(connectionString);
         var container = storageAccount.GetBlobContainerClient(containerName);
-
         var blockBlob = container.GetBlockBlobClient(blobName);
-        await blockBlob.SetHttpHeadersAsync(new BlobHttpHeaders { ContentType = "application/json" });
 
         await using var stream = await blockBlob.OpenWriteAsync(overwrite: true);
         await using var streamWriter = new StreamWriter(stream);
 
-        // 繰り返しで書き込む
         foreach (var i in Enumerable.Range(0, 100))
         {
             Console.WriteLine($"------ {i} ------");
@@ -73,6 +70,8 @@ internal class Program
 
         await streamWriter.FlushAsync();
         streamWriter.Close();
+
+        await blockBlob.SetHttpHeadersAsync(new BlobHttpHeaders { ContentType = "application/json" });
     }
 
     private record Person(string Name, int Age);
